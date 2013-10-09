@@ -139,8 +139,12 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
 
     def remove(key: String) {
       if (!key.isEmpty) {
-        client.delete(namespace + key)
+        client.delete(namespace + key)        
       }
+    }
+    
+    def removeAll() {      
+      client.flush()              
     }
   }
   
